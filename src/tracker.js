@@ -1,22 +1,29 @@
 let startTime = null;
 let elapsed = 0;
+let active = false;
 
 export function startTracking() {
-  if (!startTime) {
+  if (!active) {
     startTime = Date.now();
+    active = true;
   }
 }
 
 export function stopTracking() {
-  if (startTime) {
+  if (active) {
     elapsed += Math.floor((Date.now() - startTime) / 1000);
     startTime = null;
+    active = false;
   }
 }
 
 export function getElapsed() {
-  if (startTime) {
+  if (active) {
     return elapsed + Math.floor((Date.now() - startTime) / 1000);
   }
   return elapsed;
+}
+
+export function isActive() {
+  return active;
 }
