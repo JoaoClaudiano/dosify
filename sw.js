@@ -13,7 +13,6 @@ const urlsToCache = [
   // Se você tiver arquivos CSS/JS externos, adicione-os aqui
   'https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js'
 ];
-
 // Instalação: abre o cache e adiciona os recursos essenciais
 self.addEventListener('install', event => {
   event.waitUntil(
@@ -24,7 +23,6 @@ self.addEventListener('install', event => {
       })
   );
 });
-
 // Ativação: limpa caches antigos
 self.addEventListener('activate', event => {
   event.waitUntil(
